@@ -36,4 +36,4 @@ Navigate to `localhost:4567` in browser.
 License
 -------
 
-Copyright 2016 **Bill Klinkow**
+Copyright (c) 2016 **Bill Klinkow**
