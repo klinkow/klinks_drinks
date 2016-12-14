@@ -1,0 +1,6 @@
+development:
+  adapter: postgresql
+  database: klinks_drinks
+test:
+  adapter: postgresql
+  database: klinks_drinks_test
