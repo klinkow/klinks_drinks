@@ -20,10 +20,25 @@
         <label for="new_drink_instructions"><%= @drink.instructions() %></label>
       </div>
     </div>
-    <button class="btn waves-effect waves-light #1976d2 blue darken-2" type="submit" name="action">Submit
-      <i class="material-icons right">library_add</i>
-    </button>
-
+    <div class="row">
+      <div class="input-field col s12">
+        <select multiple>
+          <option value="" disabled selected>Choose your option</option>
+          <option value="1">Option 1</option>
+          <option value="2">Option 2</option>
+          <option value="3">Option 3</option>
+        </select>
+        <label>Add Ingredients</label>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="input_field col s12">
+        <button class="btn waves-effect waves-light #1976d2 blue darken-2" type="submit" name="action">Submit
+          <i class="material-icons right">library_add</i>
+        </button>
+      </div>
+    </div>
   </form>
   <form class="col s12" action="/drinks" method="post">
     <input type="hidden" name="_method" value="delete">
