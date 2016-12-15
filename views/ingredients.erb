@@ -1,0 +1,38 @@
+<h1>Ingredients</h1>
+
+<% @ingredients.each() do |ingredient| %>
+<div class="row">
+  <div class="col s12 m6">
+    <div class="card blue-grey darken-1">
+      <div class="card-content white-text">
+        <span class="card-title"><%= ingredient.name() %></span>
+        <p><%= ingredient.description() %></p>
+      </div>
+      <div class="card-action">
+        <a href="/ingredient/<%= ingredient.id() %>">Edit</a>
+        <a href="/ingredient">Delete</a>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>
+
+<div class="row">
+  <form class="col s12" action="/ingredients/:id" method="post">
+    <div class="row">
+      <div class="input-field col s12">
+        <input name="new_ingredient_name" id="new_ingredient_name" type="text" class="validate">
+        <label for="new_ingredient_name">Ingredient</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="inputfield col s12">
+        <input name="new_ingredient_description" id="new_ingredient_description" type="text" class="validate">
+        <label for="new_ingredient_description">Description</label>
+      </div>
+    </div>
+    <button class="btn waves-effect waves-light #1976d2 blue darken-2" type="submit" style="float: right;" name="action">Add Ingredient
+      <i class="material-icons right">library_add</i>
+    </button>
+  </form>
+</div>

@@ -1,0 +1,36 @@
+<h1>Edit your drink:</h1>
+<div class="row">
+  <form class="col s12" action="/drinks/<%= @drink.id() %>" method="post">
+    <input type="hidden" name="_method" value="patch">
+    <div class="row">
+      <div class="input-field col s6">
+        <input name="new_drink_name" id="new_drink_name" type="text" class="validate">
+        <label for="new_drink_name"><%= @drink.name() %></label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <input name="new_drink_description" id="new_drink_description" type="text" class="validate">
+        <label for="new_drink_description"><%= @drink.description() %></label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <input name="new_drink_instructions" id="new_drink_instructions" type="text" class="validate">
+        <label for="new_drink_instructions"><%= @drink.instructions() %></label>
+      </div>
+    </div>
+    <button class="btn waves-effect waves-light #1976d2 blue darken-2" type="submit" name="action">Submit
+      <i class="material-icons right">library_add</i>
+    </button>
+
+  </form>
+  <form class="col s12" action="/drinks" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input type="hidden" name="drink_id" id="drink_id" value="<%= @drink.id() %>">
+    <button class="btn waves-effect waves-light #d81b60 pink darken-1" type="submit" name="action">Delete
+      <i class="material-icons right">delete</i>
+    </button>
+  </form>
+
+</div>
