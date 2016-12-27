@@ -3,7 +3,7 @@
     <h2 class="header"><%= drink.name() %></h2>
     <div class="card horizontal">
       <div class="card-image">
-        <img src="<%= File.dirname(__FILE__) + '/public/img/martini.jpg' %>">
+        <img src="<%= '/img/martini.jpg' %>">
       </div>
       <div class="card-stacked">
         <div class="card-content">
@@ -12,6 +12,12 @@
           <br>
           <h5>Preparation:</h5>
           <p><%= drink.instructions() %></p>
+          <h5>Ingredients:</h5>
+          <ul>
+            <% drink.ingredients.each() do |ingredient| %>
+            <li><%= ingredient.name() %></li>
+            <% end %>
+          </ul>
         </div>
         <div class="card-action">
           <a href="/drink/<%= drink.id() %>">Edit Drink</a>
@@ -21,38 +27,43 @@
   </div>
 <% end %>
 
-<!-- Not working -->
+
 <ul class="collapsible" data-collapsible="accordion">
   <li>
-    <div class="collapsible-header"><i class="material-icons">filter_drama</i>Add a new drink:</div>
-    <div class="collapsible-body"><p>hi there</p></div>
+    <div class="collapsible-header"><i class="material-icons">note_add</i>Add a new drink:</div>
+    <div class="collapsible-body">
+
+      <div class="row">
+        <form class="col s10 offset-s1" action="/drinks/:id" method="post">
+          <div class="row">
+            <div class="input-field col s6">
+              <input name="new_drink_name" id="new_drink_name" type="text" class="validate">
+              <label for="new_drink_name">Name</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input name="new_drink_description" id="new_drink_description" type="text" class="validate">
+              <label for="new_drink_description">Description</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input name="new_drink_instructions" id="new_drink_instructions" type="text" class="validate">
+              <label for="new_drink_instructions">Preparation</label>
+            </div>
+          </div>
+          <button class="btn waves-effect waves-light #1976d2 blue darken-2" type="submit" style="float: right;" name="action">Submit
+            <i class="material-icons right">library_add</i>
+          </button>
+        </form>
+      </div>
+
+
+
+
+
+    </div>
   </li>
 </ul>
-
-
-<h1>Add a new drink:</h1>
-<div class="row">
-  <form class="col s12" action="/drinks/:id" method="post">
-    <div class="row">
-      <div class="input-field col s6">
-        <input name="new_drink_name" id="new_drink_name" type="text" class="validate">
-        <label for="new_drink_name">Name</label>
-      </div>
-    </div>
-    <div class="row">
-      <div class="input-field col s12">
-        <input name="new_drink_description" id="new_drink_description" type="text" class="validate">
-        <label for="new_drink_description">Description</label>
-      </div>
-    </div>
-    <div class="row">
-      <div class="input-field col s12">
-        <input name="new_drink_instructions" id="new_drink_instructions" type="text" class="validate">
-        <label for="new_drink_instructions">Preparation</label>
-      </div>
-    </div>
-    <button class="btn waves-effect waves-light #1976d2 blue darken-2" type="submit" style="float: right;" name="action">Submit
-      <i class="material-icons right">library_add</i>
-    </button>
-  </form>
-</div>
+<br>

@@ -30,13 +30,17 @@ end
 patch('/drinks/:id') do
   @drink = Drink.find(params.fetch('id'))
   @drink.update({:name => params.fetch('new_drink_name'), :instructions => params.fetch('new_drink_instructions'), :description => params.fetch('new_drink_description')})
+  @drink.ingredients.create(:name => params.fetch('new_ingredient'))
   @drink.save()
+  quantity = Quantity.find_by(drink_id: @drink.id)
+  quantity.update(:quantity => params.fetch('new_quantity'))
   @drinks = Drink.all()
   erb(:drinks)
 end
 
 get('/drink/:id') do
   @drink = Drink.find(params.fetch('id'))
+  @ingredients = Ingredient.all
   erb(:drink)
 end
 
