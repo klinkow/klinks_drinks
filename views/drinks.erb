@@ -13,11 +13,22 @@
           <h5>Preparation:</h5>
           <p><%= drink.instructions() %></p>
           <h5>Ingredients:</h5>
-          <ul>
-            <% drink.ingredients.each() do |ingredient| %>
-            <li><%= ingredient.name() %></li>
-            <% end %>
-          </ul>
+          <div class='row'>
+            <div class='col s2'>
+              <ul>
+                <% drink.ingredients.each() do |ingredient| %>
+                  <li><%= (Quantity.find_by(ingredient_id: ingredient.id, drink_id: drink.id)).quantity %></li>
+                <% end %>
+              </ul>
+            </div>
+            <div class='col s10'>
+              <ul>
+                <% drink.ingredients.each() do |ingredient| %>
+                  <li><%= ingredient.name() %></li>
+                <% end %>
+              </ul>
+            </div>
+          </div>
         </div>
         <div class="card-action">
           <a href="/drink/<%= drink.id() %>">Edit Drink</a>

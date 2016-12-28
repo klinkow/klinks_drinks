@@ -1,0 +1,35 @@
+<h1>Edit your ingredient:</h1>
+<div class="row">
+  <form class="col s12" action="/ingredients/<%= @ingredient.id() %>" method="post">
+    <input type="hidden" name="_method" value="patch">
+    <div class="row">
+      <div class="input-field col s6">
+        <input name="new_ingredient_name" id="new_ingredient_name" type="text" class="validate">
+        <label for="new_ingredient_name"><%= @ingredient.name() %></label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <input name="new_ingredient_description" id="new_ingredient_description" type="text" class="validate">
+        <label for="new_ingredient_description"><%= @ingredient.description() %></label>
+      </div>
+    </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="input_field col s12">
+        <button class="btn waves-effect waves-light #1976d2 blue darken-2" type="submit" name="action">Submit
+          <i class="material-icons right">library_add</i>
+        </button>
+      </div>
+    </div>
+  </form>
+  <form class="col s12" action="/ingredients" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input type="hidden" name="ingredient_id" id="ingredient_id" value="<%= @ingredient.id() %>">
+    <button class="btn waves-effect waves-light #d81b60 pink darken-1" type="submit" name="action">Delete
+      <i class="material-icons right">delete</i>
+    </button>
+  </form>
+
+</div>

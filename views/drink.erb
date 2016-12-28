@@ -25,7 +25,7 @@
          <select name="new_ingredient", class="icons">
            <option value="" disabled selected>Pick one</option>
            <% @ingredients.each do |ingredient| %>
-             <option value="<%= ingredient.name %>"><%= ingredient.name %></option>
+             <option value="<%= ingredient.id %>"><%= ingredient.name %></option>
            <% end %>
          </select>
          <label>Add Ingredient</label>
